@@ -1,0 +1,62 @@
+.cat-container {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+}
+
+.cat-red {
+    top: 100px;
+    right: 200px;
+}
+
+.cat-blue {
+    bottom: 100px;
+    left: 200px;
+}
+
+.cat-yellow {
+    bottom: 100px;
+    right: 200px;
+}
+
+.cat-green {
+    top: 100px;
+    left: 200px;
+}
+
+.head, .neck, .upper-body, .front-leg-right {
+    animation: rotate-head 1.5s ease infinite;
+}
+
+.front-leg-left > #bottom {
+    transform-origin: center;
+    animation: front-left-leg 1.5s ease infinite;
+}
+
+.top-tail {
+    transform-origin: center;
+    animation: wiggle-tail 1.5s ease infinite;
+}
+
+.orange-bowl {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 280px;
+    left: 70px;
+}
+
+@keyframes wiggle-tail {
+    50% { transform: rotate(20deg) translateX(5px) translateY(25px); }
+    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+}
+
+@keyframes front-left-leg {
+    50% { transform: rotate(-45deg) translateX(45px) translateY(10px); }
+    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+}
+
+@keyframes rotate-head {
+    50% { transform: rotate(-20deg) translateX(-80px) translateY(100px); }
+    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+}
