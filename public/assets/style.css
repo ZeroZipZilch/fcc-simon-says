@@ -1,30 +1,24 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .cat-container {
-    width: 400px;
+    position: relative;
+    width: 50%;
     height: 400px;
+}
+
+.cat {
+    width: 80%;
+    height: 100%;
+    top: 10%;
+    right: 0;
     position: absolute;
 }
 
-.cat-red {
-    top: 100px;
-    right: 200px;
-}
-
-.cat-blue {
-    bottom: 100px;
-    left: 200px;
-}
-
-.cat-yellow {
-    bottom: 100px;
-    right: 200px;
-}
-
-.cat-green {
-    top: 100px;
-    left: 200px;
-}
-
 .head, .necklace {
+    transform-origin: center;
     animation: bend-head 1.5s ease infinite;
 }
 
@@ -62,12 +56,12 @@
     animation: wiggle-tail 1.5s ease infinite;
 }
 
-.orange-bowl {
+.bowl {
     position: absolute;
     width: 120px;
     height: 120px;
-    top: 280px;
-    left: 70px;
+    top: 220px;
+    left: 90px;
 }
 
 /**
@@ -77,7 +71,7 @@ EAT
     50% { transform: rotate(-15deg) translateY(70px); };
 }
 @keyframes bend-head {
-    50% { transform: rotate(-15deg) translateX(-100px) translateY(260px); };
+    50% { transform: rotate(-15deg) translateX(-33px) translateY(195px); };
 }
 @keyframes bend-leg-front-left {
     50% { transform: rotate(5deg) translateX(80px) translateY(140px); };

@@ -86,7 +86,7 @@ window.onload = function() {
         fetch('/assets/images/cat-' + color + '.svg')
             .then(response => response.text())
             .then(svg => 
-                document.querySelector('.cat-container.cat-' + color)
+                document.querySelector('.cat.cat-' + color)
                     .insertAdjacentHTML('afterbegin', svg)
             );
     });
