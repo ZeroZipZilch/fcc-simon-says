@@ -1,0 +1,117 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  height: 94vh; }
+
+.container {
+  position: relative;
+  width: 50%;
+  height: 50%; }
+  .container.cat-green, .container.cat-blue {
+    transform: scaleX(-1); }
+  .container .cat {
+    width: 80%;
+    bottom: 0;
+    right: 0;
+    position: absolute; }
+    .container .cat.press .cat {
+      transform-origin: center;
+      animation: move-forward 1.5s ease infinite; }
+    .container .cat.press .head, .container .cat.press .necklace {
+      transform-origin: center;
+      animation: press-bend-head 1.5s ease infinite; }
+    .container .cat.press .body {
+      transform-origin: center;
+      animation: press-bend-upper-body 1.5s ease infinite; }
+    .container .cat.press .leg-front-left {
+      transform-origin: center;
+      animation: press-bend-leg-front-left 1.5s ease infinite; }
+    .container .cat.press .leg-front-right {
+      transform-origin: center;
+      animation: press-bend-leg-front-right 1.5s ease infinite; }
+    .container .cat.press .leg-back-left {
+      transform-origin: center;
+      animation: press-bend-leg-back-left 1.5s ease infinite; }
+      .container .cat.press .leg-back-left .bottom {
+        transform-origin: center;
+        animation: press-bend-leg-back-left-bottom 1.5s ease infinite; }
+    .container .cat.press .leg-back-right {
+      transform-origin: center;
+      animation: press-bend-leg-back-right 1.5s ease infinite; }
+    .container .cat.press .tail-top {
+      transform-origin: center;
+      animation: wiggle-tail 1.5s ease infinite; }
+    .container .cat.say .head, .container .cat.say .necklace {
+      transform-origin: center;
+      animation: say-rotate-head 1.5s ease infinite; }
+    .container .cat.say .leg-front-left {
+      transform-origin: center;
+      animation: say-leg-front-left 1.5s ease infinite; }
+    .container .cat.say .tail-top {
+      transform-origin: center;
+      animation: wiggle-tail 1.5s ease infinite; }
+  .container .bowl {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    bottom: -5%;
+    left: 15%; }
+
+/**
+Common
+**/
+@keyframes wiggle-tail {
+  50% {
+    transform: rotate(20deg) translateX(10px) translateY(21px); } }
+
+/**
+Press
+**/
+@keyframes move-forward {
+  50% {
+    transform: translateX(-150px); } }
+
+@keyframes press-bend-upper-body {
+  50% {
+    transform: rotate(-15deg) translateY(70px); } }
+
+@keyframes press-bend-head {
+  50% {
+    transform: rotate(-15deg) translateX(-33px) translateY(195px); } }
+
+@keyframes press-bend-leg-front-left {
+  50% {
+    transform: rotate(5deg) translateX(80px) translateY(140px); } }
+
+@keyframes press-bend-leg-front-right {
+  50% {
+    transform: rotate(35deg) translateX(0px) translateY(0px); } }
+
+@keyframes press-bend-leg-back-left {
+  50% {
+    transform: rotate(-15deg) translateX(80px) translateY(90px); } }
+
+@keyframes press-bend-leg-back-left-bottom {
+  50% {
+    transform: rotate(35deg) translateX(-30px) translateY(-30px); } }
+
+@keyframes press-bend-leg-back-right {
+  50% {
+    transform: rotate(25deg) translateX(-20px) translateY(90px); } }
+
+/**
+Say
+**/
+@keyframes say-leg-front-left {
+  50% {
+    transform: rotate(-45deg) translateX(56px) translateY(54px); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes say-rotate-head {
+  50% {
+    transform: rotate(-20deg) translateX(-25px) translateY(40px); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+/*# sourceMappingURL=app.css.map*/
