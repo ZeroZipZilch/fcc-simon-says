@@ -1,15 +1,15 @@
-/**
- * Todo: Add AJAX script that loads all SVG's inline
- */
+import Game from './game';
 
 const colors = [
+    'green',
     'red',
     'blue',
-    'green',
     'yellow',
 ];
 
 window.onload = function() {
+    new Game();
+
     colors.map(color => {
         fetch('/assets/images/cat-' + color + '.svg')
             .then(response => response.text())

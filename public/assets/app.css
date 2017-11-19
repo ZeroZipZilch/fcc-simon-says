@@ -14,6 +14,25 @@ body {
     bottom: 0;
     right: 0;
     position: absolute; }
+    .container .cat.idle .head, .container .cat.idle .necklace {
+      transform-origin: center; }
+    .container .cat.idle .body {
+      transform-origin: top;
+      transform: rotateZ(-5deg); }
+    .container .cat.idle .leg-front-left {
+      transform-origin: center;
+      transform: rotateZ(-43deg) translateX(26px) translateY(108px); }
+    .container .cat.idle .leg-front-right {
+      transform-origin: center; }
+    .container .cat.idle .leg-back-left {
+      transform-origin: center; }
+      .container .cat.idle .leg-back-left .bottom {
+        transform-origin: center; }
+    .container .cat.idle .leg-back-right {
+      transform-origin: center; }
+    .container .cat.idle .tail-top {
+      transform-origin: center;
+      animation: wiggle-tail 1.5s ease infinite; }
     .container .cat.press .cat {
       transform-origin: center;
       animation: move-forward 1.5s ease infinite; }
@@ -57,12 +76,43 @@ body {
     bottom: -5%;
     left: 15%; }
 
-/**
+/*****
 Common
-**/
+*****/
 @keyframes wiggle-tail {
   50% {
     transform: rotate(20deg) translateX(10px) translateY(21px); } }
+
+/***
+IDLE
+***/
+@keyframes idle-bend-upper-body {
+  50% {
+    transform: rotate(-15deg) translateY(70px); } }
+
+@keyframes idle-bend-head {
+  50% {
+    transform: rotate(-15deg) translateX(-33px) translateY(195px); } }
+
+@keyframes idle-bend-leg-front-left {
+  50% {
+    transform: rotate(5deg) translateX(80px) translateY(140px); } }
+
+@keyframes idle-bend-leg-front-right {
+  50% {
+    transform: rotate(35deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-bend-leg-back-left {
+  50% {
+    transform: rotate(-15deg) translateX(80px) translateY(90px); } }
+
+@keyframes idle-bend-leg-back-left-bottom {
+  50% {
+    transform: rotate(35deg) translateX(-30px) translateY(-30px); } }
+
+@keyframes idle-bend-leg-back-right {
+  50% {
+    transform: rotate(25deg) translateX(-20px) translateY(90px); } }
 
 /**
 Press

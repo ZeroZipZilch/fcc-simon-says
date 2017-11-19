@@ -19,6 +19,50 @@ body {
         right: 0;
         position: absolute;
         
+        &.idle {
+            .head, .necklace {
+                transform-origin: center;
+                //animation: idle-bend-head 1.5s ease infinite;
+            }
+
+            .body {
+                transform-origin: top;
+                //animation: idle-bend-upper-body 1.5s ease infinite;
+                transform: rotateZ(-5deg);
+            }
+            
+            .leg-front-left {
+                transform-origin: center;
+                //animation: idle-bend-leg-front-left 1.5s ease infinite;
+                transform: rotateZ(-43deg) translateX(26px) translateY(108px);
+            }
+            
+            .leg-front-right {
+                transform-origin: center;
+                //animation: idle-bend-leg-front-right 1.5s ease infinite;
+            }
+            
+            .leg-back-left {
+                transform-origin: center;
+                //animation: idle-bend-leg-back-left 1.5s ease infinite;
+                
+                .bottom {
+                    transform-origin: center;
+                    //animation: idle-bend-leg-back-left-bottom 1.5s ease infinite;
+                }
+            }
+            
+            .leg-back-right {
+                transform-origin: center;
+                //animation: idle-bend-leg-back-right 1.5s ease infinite;
+            }
+            
+            .tail-top {
+                transform-origin: center;
+                animation: wiggle-tail 1.5s ease infinite;
+            }
+        }
+        
         &.press {
             .cat {
                 transform-origin: center;
@@ -92,11 +136,36 @@ body {
     }
 }
 
-/**
+/*****
 Common
-**/
+*****/
 @keyframes wiggle-tail {
     50% { transform: rotate(20deg) translateX(10px) translateY(21px); }
+}
+
+/***
+IDLE
+***/
+@keyframes idle-bend-upper-body {
+    50% { transform: rotate(-15deg) translateY(70px); };
+}
+@keyframes idle-bend-head {
+    50% { transform: rotate(-15deg) translateX(-33px) translateY(195px); };
+}
+@keyframes idle-bend-leg-front-left {
+    50% { transform: rotate(5deg) translateX(80px) translateY(140px); };
+}
+@keyframes idle-bend-leg-front-right {
+    50% { transform: rotate(35deg) translateX(0px) translateY(0px); };
+}
+@keyframes idle-bend-leg-back-left {
+    50% { transform: rotate(-15deg) translateX(80px) translateY(90px); };
+}
+@keyframes idle-bend-leg-back-left-bottom {
+    50% { transform: rotate(35deg) translateX(-30px) translateY(-30px); };
+}
+@keyframes idle-bend-leg-back-right {
+    50% { transform: rotate(25deg) translateX(-20px) translateY(90px); };
 }
 
 /**

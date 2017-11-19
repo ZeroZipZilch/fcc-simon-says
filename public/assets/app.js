@@ -73,20 +73,23 @@ module.exports = __webpack_require__(2);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/**
- * Todo: Add AJAX script that loads all SVG's inline
- */
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game__ = __webpack_require__(3);
+
 
 const colors = [
+    'green',
     'red',
     'blue',
-    'green',
     'yellow',
 ];
 
 window.onload = function() {
+    new __WEBPACK_IMPORTED_MODULE_0__game__["a" /* default */]();
+
     colors.map(color => {
         fetch('/assets/images/cat-' + color + '.svg')
             .then(response => response.text())
@@ -102,6 +105,19 @@ window.onload = function() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Game {
+    constructor() {
+        console.log("Ellooo, I am Lindsay Lohaaaan");
+    }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Game);
 
 /***/ })
 /******/ ]);
