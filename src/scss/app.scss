@@ -22,39 +22,44 @@ body {
         &.idle {
             .head, .necklace {
                 transform-origin: center;
-                //animation: idle-bend-head 1.5s ease infinite;
+                animation: idle-bend-head 1.5s ease infinite;
+                transform: rotateZ(-4deg) translateX(6px) translateY(54px);
             }
 
             .body {
                 transform-origin: top;
-                //animation: idle-bend-upper-body 1.5s ease infinite;
-                transform: rotateZ(-5deg);
+                animation: idle-bend-upper-body 1.5s ease infinite;
+                transform: rotateZ(-7deg) translateX(-20px);
             }
             
             .leg-front-left {
                 transform-origin: center;
-                //animation: idle-bend-leg-front-left 1.5s ease infinite;
-                transform: rotateZ(-43deg) translateX(26px) translateY(108px);
+                animation: idle-bend-leg-front-left 1.5s ease infinite;
+                transform: rotateZ(-43deg) translateX(26px) translateY(140px);
             }
             
             .leg-front-right {
                 transform-origin: center;
-                //animation: idle-bend-leg-front-right 1.5s ease infinite;
+                animation: idle-bend-leg-front-right 1.5s ease infinite;
+                transform: rotateZ(-3deg);
             }
             
             .leg-back-left {
                 transform-origin: center;
-                //animation: idle-bend-leg-back-left 1.5s ease infinite;
+                animation: idle-bend-leg-back-left 1.5s ease infinite;
+                transform: rotateZ(-3deg);
                 
                 .bottom {
                     transform-origin: center;
-                    //animation: idle-bend-leg-back-left-bottom 1.5s ease infinite;
+                    animation: idle-bend-leg-back-left-bottom 1.5s ease infinite;
+                    transform: rotateZ(7deg);
                 }
             }
             
             .leg-back-right {
                 transform-origin: center;
-                //animation: idle-bend-leg-back-right 1.5s ease infinite;
+                animation: idle-bend-leg-back-right 1.5s ease infinite;
+                transform: rotateZ(-3deg);
             }
             
             .tail-top {
@@ -147,25 +152,39 @@ Common
 IDLE
 ***/
 @keyframes idle-bend-upper-body {
-    50% { transform: rotate(-15deg) translateY(70px); };
+    0% { transform: rotateZ(-7deg) translateX(-20px); };
+    50% { transform: rotateZ(-6deg) translateX(-18px); };
+    0% { transform: rotateZ(-7deg) translateX(-20px); };
 }
 @keyframes idle-bend-head {
-    50% { transform: rotate(-15deg) translateX(-33px) translateY(195px); };
+    0% { transform: rotateZ(-4deg) translateX(6px) translateY(54px); };
+    50% { transform: rotateZ(-3deg) translateX(4px) translateY(52px); };
+    0% { transform: rotateZ(-4deg) translateX(6px) translateY(54px); };
 }
 @keyframes idle-bend-leg-front-left {
-    50% { transform: rotate(5deg) translateX(80px) translateY(140px); };
+    0% { transform: rotateZ(-45deg) translateX(42px) translateY(115px); };
+    50% { transform: rotateZ(-43deg) translateX(40px) translateY(113px); };
+    100% { transform: rotateZ(-45deg) translateX(42px) translateY(115px); };
 }
 @keyframes idle-bend-leg-front-right {
-    50% { transform: rotate(35deg) translateX(0px) translateY(0px); };
+    0% { transform: rotateZ(-3deg); };
+    50% { transform: rotateZ(-2deg); };
+    100% { transform: rotateZ(-3deg); };
 }
 @keyframes idle-bend-leg-back-left {
-    50% { transform: rotate(-15deg) translateX(80px) translateY(90px); };
+    0% { transform: rotateZ(-1deg); };
+    50% { transform: rotateZ(-3deg); };
+    100% { transform: rotateZ(-1deg); };
 }
 @keyframes idle-bend-leg-back-left-bottom {
-    50% { transform: rotate(35deg) translateX(-30px) translateY(-30px); };
+    0% { transform: rotateZ(0deg); };
+    50% { transform: rotateZ(4deg); };
+    100% { transform: rotateZ(0deg); };
 }
 @keyframes idle-bend-leg-back-right {
-    50% { transform: rotate(25deg) translateX(-20px) translateY(90px); };
+    0% { transform: rotateZ(0deg); };
+    50% { transform: rotateZ(4deg); };
+    100% { transform: rotateZ(0deg); };
 }
 
 /**
