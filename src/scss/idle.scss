@@ -1,0 +1,82 @@
+&.idle {
+    .head, .necklace {
+        transform-origin: center;
+        animation: idle-bend-head 1.5s ease infinite;
+        transform: rotateZ(-4deg) translateX(9px) translateY(57px);
+    }
+
+    .body {
+        transform-origin: top;
+        animation: idle-bend-upper-body 1.5s ease infinite;
+        transform: rotateZ(-7deg) translateX(-20px);
+    }
+    
+    .leg-front-left {
+        transform-origin: center;
+        animation: idle-bend-leg-front-left 1.5s ease infinite;
+        transform: rotateZ(-43deg) translateX(42px) translateY(105px);
+    }
+    
+    .leg-front-right {
+        transform-origin: center;
+        animation: idle-bend-leg-front-right 1.5s ease infinite;
+        transform: rotateZ(-3deg);
+    }
+    
+    .leg-back-left {
+        transform-origin: center;
+        animation: idle-bend-leg-back-left 1.5s ease infinite;
+        transform: rotateZ(-3deg);
+        
+        .bottom {
+            transform-origin: center;
+            animation: idle-bend-leg-back-left-bottom 1.5s ease infinite;
+            transform: rotateZ(7deg);
+        }
+    }
+    
+    .leg-back-right {
+        transform-origin: center;
+        animation: idle-bend-leg-back-right 1.5s ease infinite;
+        transform: rotateZ(-3deg);
+    }
+}
+
+/********
+Keyframes
+********/
+@keyframes idle-bend-upper-body {
+    0% { transform: rotateZ(-7deg) translateX(-20px); };
+    50% { transform: rotateZ(-6deg) translateX(-18px); };
+    100% { transform: rotateZ(-7deg) translateX(-20px); };
+}
+@keyframes idle-bend-head {
+    0% { transform: rotateZ(-4deg) translateX(9px) translateY(57px); };
+    50% { transform: rotateZ(-5deg) translateX(4px) translateY(58px); };
+    100% { transform: rotateZ(-4deg) translateX(9px) translateY(57px); };
+}
+@keyframes idle-bend-leg-front-left {
+    0% { transform: rotateZ(-45deg) translateX(42px) translateY(105px); };
+    50% { transform: rotateZ(-43deg) translateX(40px) translateY(113px); };
+    100% { transform: rotateZ(-45deg) translateX(42px) translateY(105px); };
+}
+@keyframes idle-bend-leg-front-right {
+    0% { transform: rotateZ(-3deg); };
+    50% { transform: rotateZ(-2deg); };
+    100% { transform: rotateZ(-3deg); };
+}
+@keyframes idle-bend-leg-back-left {
+    0% { transform: rotateZ(-1deg); };
+    50% { transform: rotateZ(-3deg); };
+    100% { transform: rotateZ(-1deg); };
+}
+@keyframes idle-bend-leg-back-left-bottom {
+    0% { transform: rotateZ(0deg); };
+    50% { transform: rotateZ(4deg); };
+    100% { transform: rotateZ(0deg); };
+}
+@keyframes idle-bend-leg-back-right {
+    0% { transform: rotateZ(0deg); };
+    50% { transform: rotateZ(4deg); };
+    100% { transform: rotateZ(0deg); };
+}

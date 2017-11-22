@@ -1,0 +1,35 @@
+&.idle-to-say {
+    .head, .necklace {
+        transform-origin: center;
+        animation: idle-to-say-head 0.5s ease;
+        transform: rotateZ(-4deg) translateX(9px) translateY(57px);
+    }
+
+    .body {
+        transform-origin: top;
+        animation: idle-to-say-body 0.5s ease;
+        transform: rotateZ(-7deg) translateX(-20px);
+    }
+
+    .leg-front-left {
+        transform-origin: center;
+        animation: idle-to-say-leg-front-left 0.5s ease;
+        transform: rotateZ(-43deg) translateX(42px) translateY(105px);
+    }
+}
+
+/********
+Keyframes
+********/
+@keyframes idle-to-say-head {
+    0% { transform: rotateZ(-4deg) translateX(9px) translateY(57px); };
+    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+}
+@keyframes idle-to-say-body {
+    0% { transform: rotateZ(-7deg) translateX(-20px); };
+    100% { transform: rotateZ(0deg) translateX(0px) };
+}
+@keyframes idle-to-say-leg-front-left {
+    0% { transform: rotateZ(-43deg) translateX(48px) translateY(105px); };
+    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+}

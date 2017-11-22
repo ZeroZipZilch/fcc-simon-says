@@ -1,0 +1,72 @@
+&.press-to-idle {
+    .cat {
+        transform-origin: center;
+        animation: press-to-idle-move-backwards 0.5s ease;
+    }
+    .head, .necklace {
+        transform-origin: center;
+        animation: press-to-idle-head 0.5s ease;
+    }
+
+    .body {
+        transform-origin: center;
+        animation: press-to-idle-body 0.5s ease;
+    }
+    
+    .leg-front-left {
+        transform-origin: center;
+        animation: press-to-idle-leg-front-left 0.5s ease;
+    }
+    
+    .leg-front-right {
+        transform-origin: center;
+        animation: press-to-idle-leg-front-right 0.5s ease;
+    }
+    
+    .leg-back-left {
+        transform-origin: center;
+        animation: press-to-idle-leg-back-left 0.5s ease;
+        
+        .bottom {
+            transform-origin: center;
+            animation: press-to-idle-leg-back-left-bottom 0.5s ease;
+        }
+    }
+    
+    .leg-back-right {
+        transform-origin: center;
+        animation: press-to-idle-leg-back-right 0.5s ease;
+    }
+}
+
+/********
+Keyframes
+********/
+@keyframes press-to-idle-body {
+    0% { transform: rotate(0deg) translateX(0px); };
+    100% { transform: rotateZ(-7deg) translateX(10px); };
+}
+@keyframes press-to-idle-head {
+    0% { transform: rotate(0deg) translateX(0px) translateY(0px); };
+    100% { transform: rotateZ(-4deg) translateX(9px) translateY(57px); };
+}
+@keyframes press-to-idle-leg-front-left {
+    0% { transform: rotate(0deg) translateX(0px) translateY(0px); };
+    100% { transform: rotateZ(-43deg) translateX(48px) translateY(105px); };
+}
+@keyframes press-to-idle-leg-front-right {
+    0% { transform: rotate(0deg) translateX(0px) translateY(0px); };
+    100% { transform: rotateZ(-3deg); };
+}
+@keyframes press-to-idle-leg-back-left {
+    0% { transform: rotate(-0deg) translateX(0px) translateY(0px); };
+    100% { transform: rotateZ(-1deg); };
+}
+@keyframes press-to-idle-leg-back-left-bottom {
+    0% { transform: rotate(0deg) translateX(0px) translateY(0px); };
+    100% { transform: rotateZ(0deg); };
+}
+@keyframes press-to-idle-leg-back-right {
+    0% { transform: rotate(0deg) translateX(0px) translateY(0px); };
+    100% { transform: rotateZ(0deg); };
+}

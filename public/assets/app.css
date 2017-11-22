@@ -13,11 +13,42 @@ body {
     width: 80%;
     bottom: 0;
     right: 0;
-    position: absolute; }
+    position: absolute;
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/
+    /********
+Keyframes
+********/ }
+    .container .cat .cat .tail-top {
+      transform-origin: center;
+      animation: wiggle-tail 1.5s ease infinite; }
+
+@keyframes wiggle-tail {
+  50% {
+    transform: rotate(20deg) translateX(10px) translateY(21px); } }
     .container .cat.idle .head, .container .cat.idle .necklace {
       transform-origin: center;
       animation: idle-bend-head 1.5s ease infinite;
-      transform: rotateZ(-4deg) translateX(6px) translateY(54px); }
+      transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
     .container .cat.idle .body {
       transform-origin: top;
       animation: idle-bend-upper-body 1.5s ease infinite;
@@ -25,7 +56,7 @@ body {
     .container .cat.idle .leg-front-left {
       transform-origin: center;
       animation: idle-bend-leg-front-left 1.5s ease infinite;
-      transform: rotateZ(-43deg) translateX(26px) translateY(140px); }
+      transform: rotateZ(-43deg) translateX(42px) translateY(105px); }
     .container .cat.idle .leg-front-right {
       transform-origin: center;
       animation: idle-bend-leg-front-right 1.5s ease infinite;
@@ -42,85 +73,30 @@ body {
       transform-origin: center;
       animation: idle-bend-leg-back-right 1.5s ease infinite;
       transform: rotateZ(-3deg); }
-    .container .cat.idle .tail-top {
-      transform-origin: center;
-      animation: wiggle-tail 1.5s ease infinite; }
-    .container .cat.press .cat {
-      transform-origin: center;
-      animation: move-forward 1.5s ease infinite; }
-    .container .cat.press .head, .container .cat.press .necklace {
-      transform-origin: center;
-      animation: press-bend-head 1.5s ease infinite; }
-    .container .cat.press .body {
-      transform-origin: center;
-      animation: press-bend-upper-body 1.5s ease infinite; }
-    .container .cat.press .leg-front-left {
-      transform-origin: center;
-      animation: press-bend-leg-front-left 1.5s ease infinite; }
-    .container .cat.press .leg-front-right {
-      transform-origin: center;
-      animation: press-bend-leg-front-right 1.5s ease infinite; }
-    .container .cat.press .leg-back-left {
-      transform-origin: center;
-      animation: press-bend-leg-back-left 1.5s ease infinite; }
-      .container .cat.press .leg-back-left .bottom {
-        transform-origin: center;
-        animation: press-bend-leg-back-left-bottom 1.5s ease infinite; }
-    .container .cat.press .leg-back-right {
-      transform-origin: center;
-      animation: press-bend-leg-back-right 1.5s ease infinite; }
-    .container .cat.press .tail-top {
-      transform-origin: center;
-      animation: wiggle-tail 1.5s ease infinite; }
-    .container .cat.say .head, .container .cat.say .necklace {
-      transform-origin: center;
-      animation: say-rotate-head 1.5s ease infinite; }
-    .container .cat.say .leg-front-left {
-      transform-origin: center;
-      animation: say-leg-front-left 1.5s ease infinite; }
-    .container .cat.say .tail-top {
-      transform-origin: center;
-      animation: wiggle-tail 1.5s ease infinite; }
-  .container .bowl {
-    position: absolute;
-    width: 20%;
-    height: 20%;
-    bottom: -5%;
-    left: 15%; }
 
-/*****
-Common
-*****/
-@keyframes wiggle-tail {
-  50% {
-    transform: rotate(20deg) translateX(10px) translateY(21px); } }
-
-/***
-IDLE
-***/
 @keyframes idle-bend-upper-body {
   0% {
     transform: rotateZ(-7deg) translateX(-20px); }
   50% {
     transform: rotateZ(-6deg) translateX(-18px); }
-  0% {
+  100% {
     transform: rotateZ(-7deg) translateX(-20px); } }
 
 @keyframes idle-bend-head {
   0% {
-    transform: rotateZ(-4deg) translateX(6px) translateY(54px); }
+    transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
   50% {
-    transform: rotateZ(-3deg) translateX(4px) translateY(52px); }
-  0% {
-    transform: rotateZ(-4deg) translateX(6px) translateY(54px); } }
+    transform: rotateZ(-5deg) translateX(4px) translateY(58px); }
+  100% {
+    transform: rotateZ(-4deg) translateX(9px) translateY(57px); } }
 
 @keyframes idle-bend-leg-front-left {
   0% {
-    transform: rotateZ(-45deg) translateX(42px) translateY(115px); }
+    transform: rotateZ(-45deg) translateX(42px) translateY(105px); }
   50% {
     transform: rotateZ(-43deg) translateX(40px) translateY(113px); }
   100% {
-    transform: rotateZ(-45deg) translateX(42px) translateY(115px); } }
+    transform: rotateZ(-45deg) translateX(42px) translateY(105px); } }
 
 @keyframes idle-bend-leg-front-right {
   0% {
@@ -153,10 +129,167 @@ IDLE
     transform: rotateZ(4deg); }
   100% {
     transform: rotateZ(0deg); } }
+    .container .cat.idle-to-press .head, .container .cat.idle-to-press .necklace {
+      transform-origin: center;
+      animation: idle-to-press-head 0.5s ease;
+      transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+    .container .cat.idle-to-press .body {
+      transform-origin: center;
+      animation: idle-to-press-body 0.5s ease;
+      transform: rotateZ(-7deg) translateX(5px); }
+    .container .cat.idle-to-press .leg-front-left {
+      transform-origin: center;
+      animation: idle-to-press-leg-front-left 0.5s ease;
+      transform: rotateZ(-43deg) translateX(48px) translateY(105px); }
+    .container .cat.idle-to-press .leg-front-right {
+      transform-origin: center;
+      animation: idle-to-press-leg-front-right 0.5s ease;
+      transform: rotateZ(-3deg); }
+    .container .cat.idle-to-press .leg-back-left {
+      transform-origin: center;
+      animation: idle-to-press-leg-back-left 0.5s ease;
+      transform: rotateZ(-3deg); }
+      .container .cat.idle-to-press .leg-back-left .bottom {
+        transform-origin: center;
+        animation: idle-to-press-leg-back-left-bottom 0.5s ease;
+        transform: rotateZ(7deg); }
+    .container .cat.idle-to-press .leg-back-right {
+      transform-origin: center;
+      animation: idle-to-press-leg-back-right 0.5s ease;
+      transform: rotateZ(-3deg); }
 
-/**
-Press
-**/
+@keyframes idle-to-press-body {
+  0% {
+    transform: rotateZ(-7deg) translateX(5px); }
+  100% {
+    transform: rotate(0deg) translateX(0px); } }
+
+@keyframes idle-to-press-head {
+  0% {
+    transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-to-press-leg-front-left {
+  0% {
+    transform: rotateZ(-45deg) translateX(48px) translateY(105px); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-to-press-leg-front-right {
+  0% {
+    transform: rotateZ(-3deg); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-to-press-leg-back-left {
+  0% {
+    transform: rotateZ(-1deg); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-to-press-leg-back-left-bottom {
+  0% {
+    transform: rotateZ(0deg); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-to-press-leg-back-right {
+  0% {
+    transform: rotateZ(0deg); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+    .container .cat.press-to-idle .cat {
+      transform-origin: center;
+      animation: press-to-idle-move-backwards 0.5s ease; }
+    .container .cat.press-to-idle .head, .container .cat.press-to-idle .necklace {
+      transform-origin: center;
+      animation: press-to-idle-head 0.5s ease; }
+    .container .cat.press-to-idle .body {
+      transform-origin: center;
+      animation: press-to-idle-body 0.5s ease; }
+    .container .cat.press-to-idle .leg-front-left {
+      transform-origin: center;
+      animation: press-to-idle-leg-front-left 0.5s ease; }
+    .container .cat.press-to-idle .leg-front-right {
+      transform-origin: center;
+      animation: press-to-idle-leg-front-right 0.5s ease; }
+    .container .cat.press-to-idle .leg-back-left {
+      transform-origin: center;
+      animation: press-to-idle-leg-back-left 0.5s ease; }
+      .container .cat.press-to-idle .leg-back-left .bottom {
+        transform-origin: center;
+        animation: press-to-idle-leg-back-left-bottom 0.5s ease; }
+    .container .cat.press-to-idle .leg-back-right {
+      transform-origin: center;
+      animation: press-to-idle-leg-back-right 0.5s ease; }
+
+@keyframes press-to-idle-body {
+  0% {
+    transform: rotate(0deg) translateX(0px); }
+  100% {
+    transform: rotateZ(-7deg) translateX(10px); } }
+
+@keyframes press-to-idle-head {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(-4deg) translateX(9px) translateY(57px); } }
+
+@keyframes press-to-idle-leg-front-left {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(-43deg) translateX(48px) translateY(105px); } }
+
+@keyframes press-to-idle-leg-front-right {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(-3deg); } }
+
+@keyframes press-to-idle-leg-back-left {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(-1deg); } }
+
+@keyframes press-to-idle-leg-back-left-bottom {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(0deg); } }
+
+@keyframes press-to-idle-leg-back-right {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(0deg); } }
+    .container .cat.press .cat {
+      transform-origin: center;
+      animation: move-forward 1.5s ease infinite; }
+    .container .cat.press .head, .container .cat.press .necklace {
+      transform-origin: center;
+      animation: press-bend-head 1.5s ease infinite; }
+    .container .cat.press .body {
+      transform-origin: center;
+      animation: press-bend-upper-body 1.5s ease infinite; }
+    .container .cat.press .leg-front-left {
+      transform-origin: center;
+      animation: press-bend-leg-front-left 1.5s ease infinite; }
+    .container .cat.press .leg-front-right {
+      transform-origin: center;
+      animation: press-bend-leg-front-right 1.5s ease infinite; }
+    .container .cat.press .leg-back-left {
+      transform-origin: center;
+      animation: press-bend-leg-back-left 1.5s ease infinite; }
+      .container .cat.press .leg-back-left .bottom {
+        transform-origin: center;
+        animation: press-bend-leg-back-left-bottom 1.5s ease infinite; }
+    .container .cat.press .leg-back-right {
+      transform-origin: center;
+      animation: press-bend-leg-back-right 1.5s ease infinite; }
+
 @keyframes move-forward {
   50% {
     transform: translateX(-150px); } }
@@ -188,10 +321,70 @@ Press
 @keyframes press-bend-leg-back-right {
   50% {
     transform: rotate(25deg) translateX(-20px) translateY(90px); } }
+    .container .cat.idle-to-say .head, .container .cat.idle-to-say .necklace {
+      transform-origin: center;
+      animation: idle-to-say-head 0.5s ease;
+      transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+    .container .cat.idle-to-say .body {
+      transform-origin: top;
+      animation: idle-to-say-body 0.5s ease;
+      transform: rotateZ(-7deg) translateX(-20px); }
+    .container .cat.idle-to-say .leg-front-left {
+      transform-origin: center;
+      animation: idle-to-say-leg-front-left 0.5s ease;
+      transform: rotateZ(-43deg) translateX(42px) translateY(105px); }
 
-/**
-Say
-**/
+@keyframes idle-to-say-head {
+  0% {
+    transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+
+@keyframes idle-to-say-body {
+  0% {
+    transform: rotateZ(-7deg) translateX(-20px); }
+  100% {
+    transform: rotateZ(0deg) translateX(0px); } }
+
+@keyframes idle-to-say-leg-front-left {
+  0% {
+    transform: rotateZ(-43deg) translateX(48px) translateY(105px); }
+  100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+    .container .cat.say-to-idle .head, .container .cat.say-to-idle .necklace {
+      transform-origin: center;
+      animation: say-to-idle-head 0.5s ease; }
+    .container .cat.say-to-idle .body {
+      transform-origin: top;
+      animation: say-to-idle-body 0.5s ease; }
+    .container .cat.say-to-idle .leg-front-left {
+      transform-origin: center;
+      animation: say-to-idle-leg-front-left 0.5s ease; }
+
+@keyframes say-to-idle-head {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(-4deg) translateX(9px) translateY(57px); } }
+
+@keyframes say-to-idle-body {
+  0% {
+    transform: rotateZ(0deg) translateX(0px); }
+  100% {
+    transform: rotateZ(-7deg) translateX(-20px); } }
+
+@keyframes say-to-idle-leg-front-left {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(0px); }
+  100% {
+    transform: rotateZ(-43deg) translateX(48px) translateY(105px); } }
+    .container .cat.say .head, .container .cat.say .necklace {
+      transform-origin: center;
+      animation: say-rotate-head 1.5s ease infinite; }
+    .container .cat.say .leg-front-left {
+      transform-origin: center;
+      animation: say-leg-front-left 1.5s ease infinite; }
+
 @keyframes say-leg-front-left {
   50% {
     transform: rotate(-45deg) translateX(56px) translateY(54px); }
@@ -203,5 +396,11 @@ Say
     transform: rotate(-20deg) translateX(-25px) translateY(40px); }
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px); } }
+  .container .bowl {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    bottom: -5%;
+    left: 15%; }
 
 /*# sourceMappingURL=app.css.map*/

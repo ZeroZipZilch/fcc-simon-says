@@ -1,0 +1,12 @@
+
+.cat .tail-top {
+    transform-origin: center;
+    animation: wiggle-tail 1.5s ease infinite;
+}
+
+/********
+Keyframes
+********/
+@keyframes wiggle-tail {
+    50% { transform: rotate(20deg) translateX(10px) translateY(21px); }
+}
