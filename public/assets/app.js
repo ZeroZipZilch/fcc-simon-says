@@ -142,7 +142,7 @@ class Game {
     }
 
     start () {
-        this.mew(this.stack.peek());
+        //this.mew(this.stack.peek());
         this.initPressListener();
     }
 
@@ -162,12 +162,13 @@ class Game {
 
     press (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
-        console.log(catIndex, Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
+        
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-press');
 
-        let catSound = new Audio('/assets/sounds/' + catIndex + '.mp3');
-        catSound.play();
+        let catSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
+        
+        setTimeout(() => catSound.play(), 1000);
 
         Object(__WEBPACK_IMPORTED_MODULE_1__animate__["c" /* transitionIdleToPress */])(cat)
         .then(() => Object(__WEBPACK_IMPORTED_MODULE_1__animate__["a" /* pressToTransitionIdle */])(cat))

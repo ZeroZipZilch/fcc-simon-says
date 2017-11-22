@@ -19,7 +19,7 @@ class Game {
     }
 
     start () {
-        this.mew(this.stack.peek());
+        //this.mew(this.stack.peek());
         this.initPressListener();
     }
 
@@ -39,12 +39,13 @@ class Game {
 
     press (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
-        console.log(catIndex, element(cat));
+        
         element(cat).classList.remove('idle');
         element(cat).classList.add('idle-to-press');
 
-        let catSound = new Audio('/assets/sounds/' + catIndex + '.mp3');
-        catSound.play();
+        let catSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
+        
+        setTimeout(() => catSound.play(), 1000);
 
         transitionIdleToPress(cat)
         .then(() => pressToTransitionIdle(cat))
