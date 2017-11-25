@@ -8,7 +8,11 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-content: space-around;
-  height: 94vh; }
+  height: 94vh;
+  padding-top: 4vh; }
+
+abbr {
+  text-decoration: none; }
 
 .cat-row {
   flex: 1;
@@ -420,35 +424,39 @@ Keyframes
       left: 15%; }
 
 .actions-container {
-  width: 100vw;
-  height: 8vw;
-  position: absolute;
-  top: 40vh;
-  margin-top: -4vw;
   display: flex;
-  justify-content: center;
-  align-items: center; }
-  .actions-container .action {
-    margin: 0 50px;
-    width: 10vw;
-    height: 10vw;
-    max-width: 100px;
-    max-height: 80px;
-    cursor: pointer; }
-    .actions-container .action svg {
-      max-height: 100%; }
-    .actions-container .action img {
-      max-height: 70%; }
-    .actions-container .action.restart {
-      transform: rotateZ(115deg); }
-      .actions-container .action.restart img {
-        max-height: 70%; }
-  .actions-container .guillotine.on-top {
-    z-index: 10; }
-  .actions-container .guillotine.dropped .blade {
-    animation: 0.5s drop-guillotine ease-in 1 forwards; }
-  .actions-container .guillotine.lifted .blade {
-    animation: 0.5s lift-guillotine ease-in 1 forwards; }
+  background: rgba(69, 69, 69, 0.98);
+  color: #fafafa;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 60px;
+  border-bottom-left-radius: 6px;
+  z-index: 10; }
+  .actions-container .actions-menu {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    width: 400px; }
+    .actions-container .actions-menu .action {
+      margin: 0 20px;
+      width: 25px;
+      height: 25px;
+      cursor: pointer; }
+      .actions-container .actions-menu .action.restart {
+        transform: rotateZ(115deg); }
+      .actions-container .actions-menu .action.guillotine {
+        height: 50px;
+        margin-top: 5px; }
+    .actions-container .actions-menu .guillotine.on-top {
+      z-index: 10; }
+    .actions-container .actions-menu .guillotine.dropped .blade {
+      animation: 0.5s drop-guillotine ease-in 1 forwards; }
+    .actions-container .actions-menu .guillotine.lifted .blade {
+      animation: 0.5s lift-guillotine ease-in 1 forwards; }
 
 @keyframes drop-guillotine {
   from {
@@ -461,31 +469,25 @@ Keyframes
     transform: translateY(320%); }
   to {
     transform: translateY(0%); } }
-
-.score-container {
-  width: 14vw;
-  position: absolute;
-  top: 50vh;
-  left: 50%;
-  margin-left: -7vw;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem; }
-  .score-container .fish-score {
-    width: 60%;
-    height: 60%;
-    min-width: 40px; }
-  .score-container #fish-score {
-    stroke-width: 1;
-    stroke: #232323;
-    stroke-linecap: butt;
-    stroke-dasharray: 0; }
-  .score-container .separator {
-    padding: 15%; }
-  .score-container .score {
-    font-size: 1.7rem; }
+    .actions-container .actions-menu .score-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem; }
+      .actions-container .actions-menu .score-container .fish-score {
+        width: 60%;
+        height: 60%;
+        min-width: 40px;
+        margin-top: 10px; }
+      .actions-container .actions-menu .score-container #fish-score {
+        stroke-width: 1;
+        stroke: #232323;
+        stroke-linecap: butt;
+        stroke-dasharray: 0; }
+      .actions-container .actions-menu .score-container .separator {
+        padding: 10px; }
+      .actions-container .actions-menu .score-container .score {
+        font-size: 1.7rem; }
 
 .modal {
   overflow: hidden;
@@ -499,6 +501,7 @@ Keyframes
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   z-index: 1;
   font-size: 21px;
   border-radius: 8px;
@@ -517,12 +520,13 @@ Keyframes
       border: 1px solid #fcfcfc; }
   .modal.hidden {
     height: 0%; }
+  .modal .audio {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px; }
 
 .audio {
   border: 0px;
-  width: 80px;
-  height: 80px;
-  margin-top: 20px;
   background-image: url("/assets/images/audio.svg");
   background-repeat: no-repeat;
   background-size: contain;

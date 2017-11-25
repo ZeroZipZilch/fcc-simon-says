@@ -7,6 +7,23 @@
         <link rel="stylesheet" href="/assets/app.css" type="text/css">
     </head>
     <body>
+        <div class="actions-container">
+            <div class="actions-menu">
+                <abbr title="Restart"><div class="action restart"><img src="/assets/images/restart.svg" alt="Restart" /></div></abbr>
+                <abbr title="(Un)mute audio"><div class="action audio"></div></abbr>
+                <abbr title="Hardcore"><div class="action guillotine guillotine-btn"></div></abbr>
+                
+                <abbr title="Score">
+                    <div class="score-container">
+                        <div class="fish-score">
+                            <img src="/assets/images/fish-score.svg" alt="Score"/>
+                        </div>
+                        <span class="separator">x</span>
+                        <span class="score">1</span>
+                    </div>
+                </abbr>
+            </div>
+        </div>
         <div class="cat-row">
             <div class="container cat-green">
                 <img src="/assets/images/green-bowl.svg" class="bowl" />
@@ -17,18 +34,7 @@
                 <div class="cat idle" data-index="1"></div>
             </div>
         </div>
-        <div class="actions-container">
-            <abbr title="Restart"><div class="action restart"><img src="/assets/images/restart.svg" alt="Restart" /></div></abbr>
-            <abbr title="(Un)mute audio"><div class="action audio"></div></abbr>
-            <abbr title="Hardcore"><div class="action guillotine guillotine-btn"></div></abbr>
-        </div>
-        <div class="score-container">
-            <div class="fish-score">
-                <img src="/assets/images/fish-score.svg" alt="Score"/>
-            </div>
-            <span class="separator">x</span>
-            <span class="score">1</span>
-        </div>
+        
         <div class="cat-row">
             <div class="container cat-blue">
                     <img src="/assets/images/blue-bowl.svg" class="bowl" />
@@ -47,8 +53,9 @@
         </div>
 
         <div class="modal game-over hidden">
-            You died. Try again?
-            <button class="retry-btn">Try Again</button>
+            The cats execute you with a guillotine. You died.
+            <br /> Would you like to try again?
+            <button class="retry-btn">YES!</button>
         </div>
 
         <div class="modal restarting hidden">

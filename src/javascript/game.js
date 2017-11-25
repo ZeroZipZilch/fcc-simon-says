@@ -28,7 +28,7 @@ class Game {
 
     playSequence(stack) {
         if (stack.length) {
-            setTimeout(() => this.mew(stack.shift()), 1000);
+            setTimeout(() => this.mew(stack.shift()), 1500);
         }
     }
 
@@ -61,7 +61,7 @@ class Game {
         this.addToSequence();
         this.stack = [...this.sequence];
 
-        setTimeout(() => this.playSequence(this.stack), 500);
+        setTimeout(() => this.playSequence(this.stack), 1000);
     }
 
     initRestartListener () {
