@@ -71,9 +71,11 @@ class Game {
     }
 
     initAudioToggle () {
-        element('.audio').addEventListener('click', e => {
-            this.audio = !this.audio;
-            elements('.audio').map(element => element.classList.toggle('no-audio'))
+        elements('.audio').map(audioElement => {
+            audioElement.addEventListener('click', e => {
+                this.audio = !this.audio;
+                elements('.audio').map(element => element.classList.toggle('no-audio'));
+            })
         });
     }
 
@@ -107,7 +109,6 @@ class Game {
     mew (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
         
-        console.log(catIndex, cat);
         element(cat).classList.remove('idle');
         element(cat).classList.add('idle-to-say');
 

@@ -201,9 +201,11 @@ class Game {
     }
 
     initAudioToggle () {
-        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.audio').addEventListener('click', e => {
-            this.audio = !this.audio;
-            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* elements */])('.audio').map(element => element.classList.toggle('no-audio'))
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* elements */])('.audio').map(audioElement => {
+            audioElement.addEventListener('click', e => {
+                this.audio = !this.audio;
+                Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* elements */])('.audio').map(element => element.classList.toggle('no-audio'));
+            })
         });
     }
 
@@ -237,7 +239,6 @@ class Game {
     mew (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
         
-        console.log(catIndex, cat);
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-say');
 
