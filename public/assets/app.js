@@ -136,19 +136,31 @@ class Game {
         this.cats = ['green', 'red', 'blue', 'yellow'];
 
         this.sequence = [Math.floor(Math.random() * 4)];
-        this.stack = [...this.sequence];
+        this.stack = [];
+        this.turn = [];
+
+        this.hardcore = false;
+
+        this.press = this.press.bind(this);
 
         this.start();
     }
 
+    playSequence(stack) {
+        if (stack.length) {
+            setTimeout(() => this.mew(stack.shift()), 2000);
+        }
+    }
+
     start () {
-        //this.mew(this.stack.peek());
-        this.initPressListener();
+        this.stack = [...this.sequence];
+
+        this.playSequence(this.stack);
     }
 
     mew (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
-        console.log(catIndex, Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
+        
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-say');
 
@@ -158,28 +170,86 @@ class Game {
         Object(__WEBPACK_IMPORTED_MODULE_1__animate__["d" /* transitionIdleToSay */])(cat)
         .then(() => Object(__WEBPACK_IMPORTED_MODULE_1__animate__["b" /* sayToTransitionIdle */])(cat))
         .then(() => Object(__WEBPACK_IMPORTED_MODULE_1__animate__["f" /* transitionSayToIdle */])(cat));
+
+        if (this.stack.length) {
+            this.playSequence(this.stack);
+        } else {
+            setTimeout(() => this.initPressListener(), 2000);
+        }
     }
 
-    press (catIndex) {
-        const cat = '.cat-' + this.cats[catIndex] + ' .cat';
+    press (e) {
+        this.clearPressListener();
+        const catIndex = parseInt(e.currentTarget.dataset.index);
         
+        const cat = '.cat-' + this.cats[catIndex] + ' .cat';
+
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-press');
-
-        let catSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
         
-        setTimeout(() => catSound.play(), 1000);
+
+        let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
+        
+        setTimeout(() => simonSound.play(), 1000);
+        
+        if (this.sequence[this.turn.length] === catIndex) {
+            this.turn.push(catIndex);
+
+            if (this.turn.length === this.sequence.length) {
+
+                if (this.sequence.length === 20) {
+                    console.log("WOOOOON");
+                } else {
+                    this.addToSequence();
+                    this.turn = [];
+
+                    setTimeout(() => {
+                        this.stack = [...this.sequence];
+                        this.playSequence(this.stack);
+                    }, 3000);
+                }
+            } else {
+                setTimeout(() => this.initPressListener(), 2000);
+            }
+        } else {
+            if (this.hardcore) {
+                this.gameOver();
+            } else {
+                setTimeout(() => {
+                    this.stack = [...this.sequence];
+                    this.playSequence(this.stack);
+                }, 2000);
+            }
+        }
 
         Object(__WEBPACK_IMPORTED_MODULE_1__animate__["c" /* transitionIdleToPress */])(cat)
         .then(() => Object(__WEBPACK_IMPORTED_MODULE_1__animate__["a" /* pressToTransitionIdle */])(cat))
         .then(() => Object(__WEBPACK_IMPORTED_MODULE_1__animate__["e" /* transitionPressToIdle */])(cat));
     }
 
+    addToSequence () {
+        let cat = Math.floor(Math.random() * 4);
+
+        while (cat === this.sequence.peek()) {
+            cat = Math.floor(Math.random() * 4);
+        }
+
+        this.sequence.push(cat);
+    }
+
+    gameOver  () {
+
+    }
+
     initPressListener() {
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* elements */])('.cat').map(element => {
-            element.addEventListener('click', event => {
-                this.press(element.dataset.index);
-            });
+            element.addEventListener( 'click', this.press)
+        });
+    }
+
+    clearPressListener () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* elements */])('.cat').map(element => {
+            element.removeEventListener('click', this.press);
         });
     }
 }
@@ -205,7 +275,6 @@ const transitionIdleToSay = function (cat) {
         setTimeout(() => {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle-to-say');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('say');
-            console.log(Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
             res();
         }, 500);
     });
@@ -218,7 +287,6 @@ const sayToTransitionIdle = function (cat) {
         setTimeout(() => {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('say');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('say-to-idle');
-            console.log(Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
             res();
         }, 1500);
     });
@@ -231,7 +299,6 @@ const transitionSayToIdle = function (cat) {
         setTimeout(() => {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('say-to-idle');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle');
-            console.log(Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
             res();
         }, 500);
     });
@@ -250,7 +317,6 @@ const transitionIdleToPress = function (cat) {
         setTimeout(() => {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle-to-press');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('press');
-            console.log(Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
             res();
         }, 500);
     });
@@ -263,7 +329,6 @@ const pressToTransitionIdle = function (cat) {
         setTimeout(() => {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('press');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('press-to-idle');
-            console.log(Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
             res();
         }, 1500);
     });
@@ -276,7 +341,6 @@ const transitionPressToIdle = function (cat) {
         setTimeout(() => {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('press-to-idle');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle');
-            console.log(Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat));
             res();
         }, 500);
     });

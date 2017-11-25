@@ -13,19 +13,31 @@ class Game {
         this.cats = ['green', 'red', 'blue', 'yellow'];
 
         this.sequence = [Math.floor(Math.random() * 4)];
-        this.stack = [...this.sequence];
+        this.stack = [];
+        this.turn = [];
+
+        this.hardcore = false;
+
+        this.press = this.press.bind(this);
 
         this.start();
     }
 
+    playSequence(stack) {
+        if (stack.length) {
+            setTimeout(() => this.mew(stack.shift()), 2000);
+        }
+    }
+
     start () {
-        //this.mew(this.stack.peek());
-        this.initPressListener();
+        this.stack = [...this.sequence];
+
+        this.playSequence(this.stack);
     }
 
     mew (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
-        console.log(catIndex, element(cat));
+        
         element(cat).classList.remove('idle');
         element(cat).classList.add('idle-to-say');
 
@@ -35,28 +47,86 @@ class Game {
         transitionIdleToSay(cat)
         .then(() => sayToTransitionIdle(cat))
         .then(() => transitionSayToIdle(cat));
+
+        if (this.stack.length) {
+            this.playSequence(this.stack);
+        } else {
+            setTimeout(() => this.initPressListener(), 2000);
+        }
     }
 
-    press (catIndex) {
-        const cat = '.cat-' + this.cats[catIndex] + ' .cat';
+    press (e) {
+        this.clearPressListener();
+        const catIndex = parseInt(e.currentTarget.dataset.index);
         
+        const cat = '.cat-' + this.cats[catIndex] + ' .cat';
+
         element(cat).classList.remove('idle');
         element(cat).classList.add('idle-to-press');
-
-        let catSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
         
-        setTimeout(() => catSound.play(), 1000);
+
+        let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
+        
+        setTimeout(() => simonSound.play(), 1000);
+        
+        if (this.sequence[this.turn.length] === catIndex) {
+            this.turn.push(catIndex);
+
+            if (this.turn.length === this.sequence.length) {
+
+                if (this.sequence.length === 20) {
+                    console.log("WOOOOON");
+                } else {
+                    this.addToSequence();
+                    this.turn = [];
+
+                    setTimeout(() => {
+                        this.stack = [...this.sequence];
+                        this.playSequence(this.stack);
+                    }, 3000);
+                }
+            } else {
+                setTimeout(() => this.initPressListener(), 2000);
+            }
+        } else {
+            if (this.hardcore) {
+                this.gameOver();
+            } else {
+                setTimeout(() => {
+                    this.stack = [...this.sequence];
+                    this.playSequence(this.stack);
+                }, 2000);
+            }
+        }
 
         transitionIdleToPress(cat)
         .then(() => pressToTransitionIdle(cat))
         .then(() => transitionPressToIdle(cat));
     }
 
+    addToSequence () {
+        let cat = Math.floor(Math.random() * 4);
+
+        while (cat === this.sequence.peek()) {
+            cat = Math.floor(Math.random() * 4);
+        }
+
+        this.sequence.push(cat);
+    }
+
+    gameOver  () {
+
+    }
+
     initPressListener() {
         elements('.cat').map(element => {
-            element.addEventListener('click', event => {
-                this.press(element.dataset.index);
-            });
+            element.addEventListener( 'click', this.press)
+        });
+    }
+
+    clearPressListener () {
+        elements('.cat').map(element => {
+            element.removeEventListener('click', this.press);
         });
     }
 }

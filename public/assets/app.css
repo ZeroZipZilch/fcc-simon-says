@@ -1,12 +1,19 @@
+* {
+  user-select: none; }
+
 body {
+  background-color: #fafafa;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
   height: 94vh; }
 
 .container {
   position: relative;
-  width: 50%;
-  height: 50%; }
+  width: 40%;
+  height: 40%;
+  margin: 2% 0; }
   .container.cat-green, .container.cat-blue {
     transform: scaleX(-1); }
   .container .cat {
@@ -38,7 +45,7 @@ Keyframes
     /********
 Keyframes
 ********/ }
-    .container .cat .cat .tail-top {
+    .container .cat .tail-top {
       transform-origin: center;
       animation: wiggle-tail 1.5s ease infinite; }
 
@@ -265,7 +272,7 @@ Keyframes
     transform: rotate(0deg) translateX(0px) translateY(0px); }
   100% {
     transform: rotateZ(0deg); } }
-    .container .cat.press .cat {
+    .container .cat.press .catSVG {
       transform-origin: center;
       animation: move-forward 1.5s ease infinite; }
     .container .cat.press .head, .container .cat.press .necklace {
@@ -402,5 +409,16 @@ Keyframes
     height: 20%;
     bottom: -5%;
     left: 15%; }
+  .container .counter {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -75px;
+    border-radius: 50%;
+    border: 2px solid #9a559a;
+    font-size: 29px; }
 
 /*# sourceMappingURL=app.css.map*/

@@ -11,7 +11,6 @@ export const transitionIdleToSay = function (cat) {
         setTimeout(() => {
             element(cat).classList.remove('idle-to-say');
             element(cat).classList.add('say');
-            console.log(element(cat));
             res();
         }, 500);
     });
@@ -22,7 +21,6 @@ export const sayToTransitionIdle = function (cat) {
         setTimeout(() => {
             element(cat).classList.remove('say');
             element(cat).classList.add('say-to-idle');
-            console.log(element(cat));
             res();
         }, 1500);
     });
@@ -33,7 +31,6 @@ export const transitionSayToIdle = function (cat) {
         setTimeout(() => {
             element(cat).classList.remove('say-to-idle');
             element(cat).classList.add('idle');
-            console.log(element(cat));
             res();
         }, 500);
     });
@@ -50,7 +47,6 @@ export const transitionIdleToPress = function (cat) {
         setTimeout(() => {
             element(cat).classList.remove('idle-to-press');
             element(cat).classList.add('press');
-            console.log(element(cat));
             res();
         }, 500);
     });
@@ -61,7 +57,6 @@ export const pressToTransitionIdle = function (cat) {
         setTimeout(() => {
             element(cat).classList.remove('press');
             element(cat).classList.add('press-to-idle');
-            console.log(element(cat));
             res();
         }, 1500);
     });
@@ -72,7 +67,6 @@ export const transitionPressToIdle = function (cat) {
         setTimeout(() => {
             element(cat).classList.remove('press-to-idle');
             element(cat).classList.add('idle');
-            console.log(element(cat));
             res();
         }, 500);
     });
