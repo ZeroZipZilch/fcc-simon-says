@@ -443,14 +443,12 @@ Keyframes
       transform: rotateZ(115deg); }
       .actions-container .action.restart img {
         max-height: 70%; }
-  .actions-container .guillotine {
-    height: 100%; }
-    .actions-container .guillotine.on-top {
-      z-index: 10; }
-    .actions-container .guillotine.dropped .blade {
-      animation: 0.5s drop-guillotine ease-in 1 forwards; }
-    .actions-container .guillotine.lifted .blade {
-      animation: 0.5s lift-guillotine ease-in 1 forwards; }
+  .actions-container .guillotine.on-top {
+    z-index: 10; }
+  .actions-container .guillotine.dropped .blade {
+    animation: 0.5s drop-guillotine ease-in 1 forwards; }
+  .actions-container .guillotine.lifted .blade {
+    animation: 0.5s lift-guillotine ease-in 1 forwards; }
 
 @keyframes drop-guillotine {
   from {
