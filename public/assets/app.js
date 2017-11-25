@@ -105,8 +105,6 @@ const colors = [
 ];
 
 window.onload = function() {
-    new __WEBPACK_IMPORTED_MODULE_0__game__["a" /* default */]();
-
     colors.map(color => {
         fetch('/assets/images/cat-' + color + '.svg')
             .then(response => response.text())
@@ -115,6 +113,15 @@ window.onload = function() {
                     .insertAdjacentHTML('afterbegin', svg)
             );
     });
+
+    fetch('/assets/images/fish-score.svg')
+    .then(response => response.text())
+    .then(svg => 
+        document.querySelector('.fish-score')
+            .insertAdjacentHTML('afterbegin', svg)
+    );
+    
+    new __WEBPACK_IMPORTED_MODULE_0__game__["a" /* default */]();
 }
 
 Array.prototype.peek = function() {
@@ -216,6 +223,7 @@ class Game {
                 this.gameOver();
             } else {
                 setTimeout(() => {
+                    this.turn = [];
                     this.stack = [...this.sequence];
                     this.playSequence(this.stack);
                 }, 2000);
@@ -235,6 +243,7 @@ class Game {
         }
 
         this.sequence.push(cat);
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.score').innerHTML = this.sequence.length;
     }
 
     gameOver  () {

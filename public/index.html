@@ -7,22 +7,34 @@
         <link rel="stylesheet" href="/assets/app.css" type="text/css">
     </head>
     <body>
-        <div class="container cat-green">
-            <img src="/assets/images/green-bowl.svg" class="bowl" />
-            <div class="cat idle" data-index="0"></div>
+        <div class="cat-row">
+            <div class="container cat-green">
+                <img src="/assets/images/green-bowl.svg" class="bowl" />
+                <div class="cat idle" data-index="0"></div>
+            </div>
+            <div class="container cat-red">
+                <img src="/assets/images/red-bowl.svg" class="bowl" />
+                <div class="cat idle" data-index="1"></div>
+            </div>
         </div>
-        <div class="container cat-red">
-            <img src="/assets/images/red-bowl.svg" class="bowl" />
-            <div class="cat idle" data-index="1"></div>
+        <div class="actions-container">
+            <div class="action">Reset</div>
+            <div class="action">Strict Mode</div>
         </div>
-        <div class="counter">0 / 1</div>
-        <div class="container cat-blue">
-                <img src="/assets/images/blue-bowl.svg" class="bowl" />
-            <div class="cat idle" data-index="2"></div>
+        <div class="score-container">
+            <div class="fish-score"></div>
+            <span class="separator">x</span>
+            <span class="score">1</span>
         </div>
-        <div class="container cat-yellow">
-                <img src="/assets/images/yellow-bowl.svg" class="bowl" />
-            <div class="cat idle" data-index="3"></div>
+        <div class="cat-row">
+            <div class="container cat-blue">
+                    <img src="/assets/images/blue-bowl.svg" class="bowl" />
+                <div class="cat idle" data-index="2"></div>
+            </div>
+            <div class="container cat-yellow">
+                    <img src="/assets/images/yellow-bowl.svg" class="bowl" />
+                <div class="cat idle" data-index="3"></div>
+            </div>
         </div>
 
         <script src="/assets/app.js"></script>

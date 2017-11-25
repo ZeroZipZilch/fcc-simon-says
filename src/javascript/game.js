@@ -93,6 +93,7 @@ class Game {
                 this.gameOver();
             } else {
                 setTimeout(() => {
+                    this.turn = [];
                     this.stack = [...this.sequence];
                     this.playSequence(this.stack);
                 }, 2000);
@@ -112,6 +113,7 @@ class Game {
         }
 
         this.sequence.push(cat);
+        element('.score').innerHTML = this.sequence.length;
     }
 
     gameOver  () {

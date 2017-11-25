@@ -8,8 +8,6 @@ const colors = [
 ];
 
 window.onload = function() {
-    new Game();
-
     colors.map(color => {
         fetch('/assets/images/cat-' + color + '.svg')
             .then(response => response.text())
@@ -18,6 +16,15 @@ window.onload = function() {
                     .insertAdjacentHTML('afterbegin', svg)
             );
     });
+
+    fetch('/assets/images/fish-score.svg')
+    .then(response => response.text())
+    .then(svg => 
+        document.querySelector('.fish-score')
+            .insertAdjacentHTML('afterbegin', svg)
+    );
+    
+    new Game();
 }
 
 Array.prototype.peek = function() {
