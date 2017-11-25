@@ -114,11 +114,11 @@ window.onload = function() {
             );
     });
 
-    fetch('/assets/images/fish-score.svg')
+    fetch('/assets/images/guillotine.svg')
     .then(response => response.text())
     .then(svg => 
-        document.querySelector('.fish-score')
-            .insertAdjacentHTML('afterbegin', svg)
+        [...document.querySelectorAll('.guillotine')]
+        .map(element => element.insertAdjacentHTML('afterbegin', svg))
     );
     
     new __WEBPACK_IMPORTED_MODULE_0__game__["a" /* default */]();
@@ -142,15 +142,18 @@ class Game {
     constructor() {
         this.cats = ['green', 'red', 'blue', 'yellow'];
 
-        this.sequence = [Math.floor(Math.random() * 4)];
-        this.stack = [];
-        this.turn = [];
-
+        this.audio = true;
         this.hardcore = false;
 
         this.press = this.press.bind(this);
 
-        this.start();
+        this.initStartGameListener();
+        this.initRetryListener();
+        this.initReplayListener();
+
+        this.initAudioToggle();
+        this.initHardcoreToggle();
+        this.initRestartListener();
     }
 
     playSequence(stack) {
@@ -159,10 +162,72 @@ class Game {
         }
     }
 
+    initStartGameListener () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.start-game-btn').addEventListener('click', () => {
+            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.modal.start-game').classList.add('hidden');
+            this.start();
+        });
+    }
+
+    initRetryListener () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.retry-btn').addEventListener('click', () => {
+            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.modal.game-over').classList.add('hidden');
+            this.start();
+        });
+    }
+
+    initReplayListener () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.replay-btn').addEventListener('click', () => {
+            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.modal.winner').classList.add('hidden');
+            this.start();
+        });
+    }
+
     start () {
+        this.sequence = [];
+        this.stack = [];
+        this.turn = [];
+
+        this.addToSequence();
         this.stack = [...this.sequence];
 
         this.playSequence(this.stack);
+    }
+
+    initRestartListener () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.restart').addEventListener('click', () => {
+            this.restart();
+        });
+    }
+
+    initAudioToggle () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.audio').addEventListener('click', e => {
+            this.audio = !this.audio;
+            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* elements */])('.audio').map(element => element.classList.toggle('no-audio'))
+        });
+    }
+
+    initHardcoreToggle () {
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.guillotine-btn').addEventListener('click', (e) => {
+            const classList = e.currentTarget.classList;
+            
+            this.restart();
+            
+            if (classList.contains('dropped')) {
+                this.hardcore = false;
+                classList.add('lifted');
+                classList.remove('droppped');
+
+                Promise.resolve(setTimeout(() => {
+                    classList.remove('lifted');
+                    classList.remove('dropped');
+                    }, 500)
+                );
+            } else {
+                this.hardcore = true;
+                classList.add('dropped');
+            }
+        })
     }
 
     mew (catIndex) {
@@ -171,8 +236,10 @@ class Game {
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-say');
 
-        let catSound = new Audio('/assets/sounds/' + catIndex + '.mp3');
-        catSound.play();
+        if (this.audio) {
+            let catSound = new Audio('/assets/sounds/' + catIndex + '.mp3');
+            catSound.play();
+        }
 
         Object(__WEBPACK_IMPORTED_MODULE_1__animate__["d" /* transitionIdleToSay */])(cat)
         .then(() => Object(__WEBPACK_IMPORTED_MODULE_1__animate__["b" /* sayToTransitionIdle */])(cat))
@@ -194,10 +261,10 @@ class Game {
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-press');
         
-
-        let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
-        
-        setTimeout(() => simonSound.play(), 1000);
+        if (this.audio) {
+            let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
+            setTimeout(() => simonSound.play(), 1000);
+        }
         
         if (this.sequence[this.turn.length] === catIndex) {
             this.turn.push(catIndex);
@@ -205,7 +272,7 @@ class Game {
             if (this.turn.length === this.sequence.length) {
 
                 if (this.sequence.length === 20) {
-                    console.log("WOOOOON");
+                    Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.winner').classList.remove('hidden');
                 } else {
                     this.addToSequence();
                     this.turn = [];
@@ -246,8 +313,19 @@ class Game {
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.score').innerHTML = this.sequence.length;
     }
 
-    gameOver  () {
+    restart () {
+        this.audio = false;
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.restarting').classList.remove('hidden');
+        this.start();
+        setTimeout(() => {
+            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.restarting').classList.add('hidden');
+            this.audio = true;
+        }, 1500);
+    }
 
+    gameOver () {
+        this.sequence = [];
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.game-over').classList.remove('hidden');
     }
 
     initPressListener() {

@@ -17,11 +17,11 @@ window.onload = function() {
             );
     });
 
-    fetch('/assets/images/fish-score.svg')
+    fetch('/assets/images/guillotine.svg')
     .then(response => response.text())
     .then(svg => 
-        document.querySelector('.fish-score')
-            .insertAdjacentHTML('afterbegin', svg)
+        [...document.querySelectorAll('.guillotine')]
+        .map(element => element.insertAdjacentHTML('afterbegin', svg))
     );
     
     new Game();

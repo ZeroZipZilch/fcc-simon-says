@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #fafafa;
+    background-image: url('/assets/images/background.png');
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@ body {
             bottom: 0;
             right: 0;
             position: absolute;
+            cursor: pointer;
 
             @import 'common';
             @import 'idle';
@@ -60,31 +61,48 @@ body {
 
 .actions-container {
     width: 100vw;
-    height: 30vw;
+    height: 8vw;
     position: absolute;
-    top: 45vh;
-    margin-top: -15vw;
+    top: 40vh;
+    margin-top: -4vw;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .action {
-        margin: 0 15vw;
+        margin: 0 50px;
         width: 10vw;
         height: 10vw;
-        max-width: 75px;
-        max-height: 75px;
-        border: 1px solid red;
+        max-width: 100px;
+        max-height: 80px;
+        cursor: pointer;
+        
+        svg {
+            max-height: 100%;
+        }
+
+        img {
+            max-height: 70%;
+        }
+
+        &.restart {
+            transform: rotateZ(115deg);
+
+            img {
+                max-height: 70%;
+            }
+        }
+
     }
+    
+    @import "guillotine";
 }
 
 .score-container {
     width: 14vw;
-    height: 14vw;
     position: absolute;
-    top: 60vh;
+    top: 50vh;
     left: 50%;
-    margin-top: -7vw;
     margin-left: -7vw;
     border-radius: 50%;
     display: flex;
@@ -96,7 +114,6 @@ body {
         width: 60%;
         height: 60%;
         min-width: 40px;
-        margin-top: 30%;
     }
 
     #fish-score {
@@ -112,5 +129,59 @@ body {
 
     .score {
         font-size: 1.7rem;
+    }
+}
+
+.modal {
+    overflow: hidden;
+    position: fixed;
+    width: 70%;
+    height: 300px;
+    left: 15%;
+    background-image: url('/assets/images/modal-background.png');
+    color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-size: 21px;
+    border-radius: 8px;
+    transition: height 1s;
+
+    button {
+        color: #e3e3e3;
+        background-color: #343434;
+        border: 1px solid #f2f2f2;
+        border-radius: 4px;
+        width: 200px;
+        height: 50px;
+        margin-top: 20px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #454545;
+            border: 1px solid #fcfcfc;
+        }
+    }
+
+    &.hidden {
+        height: 0%;
+    }
+}
+
+.audio {
+    border: 0px;
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    background-image: url('/assets/images/audio.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: all 1s;
+    
+    &.no-audio {
+        background-image: url('/assets/images/no-audio.svg');
     }
 }

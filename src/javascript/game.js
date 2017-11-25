@@ -12,15 +12,18 @@ class Game {
     constructor() {
         this.cats = ['green', 'red', 'blue', 'yellow'];
 
-        this.sequence = [Math.floor(Math.random() * 4)];
-        this.stack = [];
-        this.turn = [];
-
+        this.audio = true;
         this.hardcore = false;
 
         this.press = this.press.bind(this);
 
-        this.start();
+        this.initStartGameListener();
+        this.initRetryListener();
+        this.initReplayListener();
+
+        this.initAudioToggle();
+        this.initHardcoreToggle();
+        this.initRestartListener();
     }
 
     playSequence(stack) {
@@ -29,10 +32,72 @@ class Game {
         }
     }
 
+    initStartGameListener () {
+        element('.start-game-btn').addEventListener('click', () => {
+            element('.modal.start-game').classList.add('hidden');
+            this.start();
+        });
+    }
+
+    initRetryListener () {
+        element('.retry-btn').addEventListener('click', () => {
+            element('.modal.game-over').classList.add('hidden');
+            this.start();
+        });
+    }
+
+    initReplayListener () {
+        element('.replay-btn').addEventListener('click', () => {
+            element('.modal.winner').classList.add('hidden');
+            this.start();
+        });
+    }
+
     start () {
+        this.sequence = [];
+        this.stack = [];
+        this.turn = [];
+
+        this.addToSequence();
         this.stack = [...this.sequence];
 
         this.playSequence(this.stack);
+    }
+
+    initRestartListener () {
+        element('.restart').addEventListener('click', () => {
+            this.restart();
+        });
+    }
+
+    initAudioToggle () {
+        element('.audio').addEventListener('click', e => {
+            this.audio = !this.audio;
+            elements('.audio').map(element => element.classList.toggle('no-audio'))
+        });
+    }
+
+    initHardcoreToggle () {
+        element('.guillotine-btn').addEventListener('click', (e) => {
+            const classList = e.currentTarget.classList;
+            
+            this.restart();
+            
+            if (classList.contains('dropped')) {
+                this.hardcore = false;
+                classList.add('lifted');
+                classList.remove('droppped');
+
+                Promise.resolve(setTimeout(() => {
+                    classList.remove('lifted');
+                    classList.remove('dropped');
+                    }, 500)
+                );
+            } else {
+                this.hardcore = true;
+                classList.add('dropped');
+            }
+        })
     }
 
     mew (catIndex) {
@@ -41,8 +106,10 @@ class Game {
         element(cat).classList.remove('idle');
         element(cat).classList.add('idle-to-say');
 
-        let catSound = new Audio('/assets/sounds/' + catIndex + '.mp3');
-        catSound.play();
+        if (this.audio) {
+            let catSound = new Audio('/assets/sounds/' + catIndex + '.mp3');
+            catSound.play();
+        }
 
         transitionIdleToSay(cat)
         .then(() => sayToTransitionIdle(cat))
@@ -64,10 +131,10 @@ class Game {
         element(cat).classList.remove('idle');
         element(cat).classList.add('idle-to-press');
         
-
-        let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
-        
-        setTimeout(() => simonSound.play(), 1000);
+        if (this.audio) {
+            let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
+            setTimeout(() => simonSound.play(), 1000);
+        }
         
         if (this.sequence[this.turn.length] === catIndex) {
             this.turn.push(catIndex);
@@ -75,7 +142,7 @@ class Game {
             if (this.turn.length === this.sequence.length) {
 
                 if (this.sequence.length === 20) {
-                    console.log("WOOOOON");
+                    element('.winner').classList.remove('hidden');
                 } else {
                     this.addToSequence();
                     this.turn = [];
@@ -116,8 +183,19 @@ class Game {
         element('.score').innerHTML = this.sequence.length;
     }
 
-    gameOver  () {
+    restart () {
+        this.audio = false;
+        element('.restarting').classList.remove('hidden');
+        this.start();
+        setTimeout(() => {
+            element('.restarting').classList.add('hidden');
+            this.audio = true;
+        }, 1500);
+    }
 
+    gameOver () {
+        this.sequence = [];
+        element('.game-over').classList.remove('hidden');
     }
 
     initPressListener() {

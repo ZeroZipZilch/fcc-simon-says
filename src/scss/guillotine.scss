@@ -1,0 +1,25 @@
+.guillotine {
+    height: 100%;
+    
+    &.dropped {
+        .blade {
+            animation: 0.5s drop-guillotine ease-in 1 forwards;
+        }
+    }
+    
+    &.lifted {
+        .blade {
+            animation: 0.5s lift-guillotine ease-in 1 forwards;
+        }
+    }
+}
+
+@keyframes drop-guillotine {
+    from { transform: translateY(0%); };
+    to { transform: translateY(320%); };
+}
+
+@keyframes lift-guillotine {
+    from { transform: translateY(320%); };
+    to { transform: translateY(0%); };
+}

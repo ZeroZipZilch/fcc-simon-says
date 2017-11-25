@@ -18,11 +18,14 @@
             </div>
         </div>
         <div class="actions-container">
-            <div class="action">Reset</div>
-            <div class="action">Strict Mode</div>
+            <div class="action restart"><img src="/assets/images/restart.svg" alt="Restart" /></div>
+            <div class="action audio"></div>
+            <div class="action guillotine guillotine-btn"></div>
         </div>
         <div class="score-container">
-            <div class="fish-score"></div>
+            <div class="fish-score">
+                <img src="/assets/images/fish-score.svg" alt="Score"/>
+            </div>
             <span class="separator">x</span>
             <span class="score">1</span>
         </div>
@@ -35,6 +38,26 @@
                     <img src="/assets/images/yellow-bowl.svg" class="bowl" />
                 <div class="cat idle" data-index="3"></div>
             </div>
+        </div>
+
+        <div class="modal start-game">
+            Do you want to enable audio?
+            <div class="audio"></div>
+            <button class="start-game-btn">Start Game</button>
+        </div>
+
+        <div class="modal game-over hidden">
+            You died. Try again?
+            <button class="retry-btn">Try Again</button>
+        </div>
+
+        <div class="modal restarting hidden">
+            Restarting game...
+        </div>
+
+        <div class="modal winner hidden">
+            You won!
+            <button class="replay-btn">Play Again?</button>
         </div>
 
         <script src="/assets/app.js"></script>
