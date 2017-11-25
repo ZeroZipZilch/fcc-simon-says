@@ -158,7 +158,7 @@ class Game {
 
     playSequence(stack) {
         if (stack.length) {
-            setTimeout(() => this.mew(stack.shift()), 2000);
+            setTimeout(() => this.mew(stack.shift()), 1000);
         }
     }
 
@@ -209,6 +209,7 @@ class Game {
 
     initHardcoreToggle () {
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.guillotine-btn').addEventListener('click', (e) => {
+            Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.guillotine').classList.add('on-top');
             const classList = e.currentTarget.classList;
             
             this.restart();
@@ -217,22 +218,26 @@ class Game {
                 this.hardcore = false;
                 classList.add('lifted');
                 classList.remove('droppped');
-
-                Promise.resolve(setTimeout(() => {
-                    classList.remove('lifted');
-                    classList.remove('dropped');
+                
+                Promise.resolve(
+                    setTimeout(() => {
+                        classList.remove('lifted');
+                        classList.remove('dropped');
                     }, 500)
                 );
             } else {
                 this.hardcore = true;
                 classList.add('dropped');
             }
+            
+            setTimeout(() => Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])('.guillotine').classList.remove('on-top'), 1500);
         })
     }
 
     mew (catIndex) {
         const cat = '.cat-' + this.cats[catIndex] + ' .cat';
         
+        console.log(catIndex, cat);
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('idle');
         Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('idle-to-say');
 
@@ -248,7 +253,7 @@ class Game {
         if (this.stack.length) {
             this.playSequence(this.stack);
         } else {
-            setTimeout(() => this.initPressListener(), 2000);
+            setTimeout(() => this.initPressListener(), 500);
         }
     }
 
@@ -263,7 +268,7 @@ class Game {
         
         if (this.audio) {
             let simonSound = new Audio('/assets/sounds/simonSound' + (parseInt(catIndex) + 1) + '.mp3');
-            setTimeout(() => simonSound.play(), 1000);
+            setTimeout(() => simonSound.play(), 500);
         }
         
         if (this.sequence[this.turn.length] === catIndex) {
@@ -280,10 +285,10 @@ class Game {
                     setTimeout(() => {
                         this.stack = [...this.sequence];
                         this.playSequence(this.stack);
-                    }, 3000);
+                    }, 1500);
                 }
             } else {
-                setTimeout(() => this.initPressListener(), 2000);
+                setTimeout(() => this.initPressListener(), 500);
             }
         } else {
             if (this.hardcore) {
@@ -293,7 +298,7 @@ class Game {
                     this.turn = [];
                     this.stack = [...this.sequence];
                     this.playSequence(this.stack);
-                }, 2000);
+                }, 1000);
             }
         }
 
@@ -375,7 +380,7 @@ const sayToTransitionIdle = function (cat) {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('say');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('say-to-idle');
             res();
-        }, 1500);
+        }, 1000);
     });
 }
 /* harmony export (immutable) */ __webpack_exports__["b"] = sayToTransitionIdle;
@@ -417,7 +422,7 @@ const pressToTransitionIdle = function (cat) {
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.remove('press');
             Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* element */])(cat).classList.add('press-to-idle');
             res();
-        }, 1500);
+        }, 1000);
     });
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = pressToTransitionIdle;

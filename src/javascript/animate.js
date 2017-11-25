@@ -22,7 +22,7 @@ export const sayToTransitionIdle = function (cat) {
             element(cat).classList.remove('say');
             element(cat).classList.add('say-to-idle');
             res();
-        }, 1500);
+        }, 1000);
     });
 }
 
@@ -58,7 +58,7 @@ export const pressToTransitionIdle = function (cat) {
             element(cat).classList.remove('press');
             element(cat).classList.add('press-to-idle');
             res();
-        }, 1500);
+        }, 1000);
     });
 }
 

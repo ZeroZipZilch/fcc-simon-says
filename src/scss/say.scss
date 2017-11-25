@@ -1,12 +1,12 @@
 &.say {
     .head, .necklace {
         transform-origin: center;
-        animation: say-rotate-head 1.5s ease infinite;
+        animation: say-rotate-head 1.0s ease infinite;
     }
     
     .leg-front-left {
         transform-origin: center;
-        animation: say-leg-front-left 1.5s ease infinite;
+        animation: say-leg-front-left 1.0s ease infinite;
     }
 }
 

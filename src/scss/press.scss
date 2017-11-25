@@ -1,41 +1,41 @@
 &.press {
     .catSVG {
         transform-origin: center;
-        animation: move-forward 1.5s ease infinite;
+        animation: move-forward 1.0s ease infinite;
     }
     .head, .necklace {
         transform-origin: center;
-        animation: press-bend-head 1.5s ease infinite;
+        animation: press-bend-head 1.0s ease infinite;
     }
 
     .body {
         transform-origin: center;
-        animation: press-bend-upper-body 1.5s ease infinite;
+        animation: press-bend-upper-body 1.0s ease infinite;
     }
     
     .leg-front-left {
         transform-origin: center;
-        animation: press-bend-leg-front-left 1.5s ease infinite;
+        animation: press-bend-leg-front-left 1.0s ease infinite;
     }
     
     .leg-front-right {
         transform-origin: center;
-        animation: press-bend-leg-front-right 1.5s ease infinite;
+        animation: press-bend-leg-front-right 1.0s ease infinite;
     }
     
     .leg-back-left {
         transform-origin: center;
-        animation: press-bend-leg-back-left 1.5s ease infinite;
+        animation: press-bend-leg-back-left 1.0s ease infinite;
         
         .bottom {
             transform-origin: center;
-            animation: press-bend-leg-back-left-bottom 1.5s ease infinite;
+            animation: press-bend-leg-back-left-bottom 1.0s ease infinite;
         }
     }
     
     .leg-back-right {
         transform-origin: center;
-        animation: press-bend-leg-back-right 1.5s ease infinite;
+        animation: press-bend-leg-back-right 1.0s ease infinite;
     }
 }
 
