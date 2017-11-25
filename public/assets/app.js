@@ -191,7 +191,7 @@ class Game {
         this.addToSequence();
         this.stack = [...this.sequence];
 
-        this.playSequence(this.stack);
+        setTimeout(() => this.playSequence(this.stack), 500);
     }
 
     initRestartListener () {
@@ -299,7 +299,7 @@ class Game {
                     this.turn = [];
                     this.stack = [...this.sequence];
                     this.playSequence(this.stack);
-                }, 1000);
+                }, 1500);
             }
         }
 
