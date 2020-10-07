@@ -2,19 +2,21 @@
     .head, .necklace {
         transform-origin: center;
         animation: idle-to-say-head 0.5s ease;
-        transform: rotateZ(-4deg) translateX(9px) translateY(57px);
     }
 
     .body {
         transform-origin: top;
         animation: idle-to-say-body 0.5s ease;
-        transform: rotateZ(-7deg) translateX(-20px);
     }
 
     .leg-front-left {
         transform-origin: center;
         animation: idle-to-say-leg-front-left 0.5s ease;
-        transform: rotateZ(-43deg) translateX(42px) translateY(105px);
+    }
+
+    .leg-front-right {
+        transform-origin: center;
+        animation: idle-to-say-leg-front-right 0.5s ease;
     }
 }
 
@@ -22,14 +24,18 @@
 Keyframes
 ********/
 @keyframes idle-to-say-head {
-    0% { transform: rotateZ(-4deg) translateX(9px) translateY(57px); };
-    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
+    0% { transform: rotateZ(-4deg) translateX(38px) translateY(22px); };
+    100% { transform: rotate(0deg) translateX(0px) translateY(2px) }
+}
+@keyframes idle-to-say-leg-front-left {
+    0% { transform: rotateZ(-45deg) translateX(62px) translateY(-219px); };
+    100% { transform: rotate(0deg) translateX(7px) translateY(4px); }
+}
+@keyframes idle-to-say-leg-front-right {
+    0% { transform: rotateZ(-3deg) translateY(0px); };
+    100% { transform: rotateZ(-3deg) translateY(-15px); };
 }
 @keyframes idle-to-say-body {
     0% { transform: rotateZ(-7deg) translateX(-20px); };
     100% { transform: rotateZ(0deg) translateX(0px) };
-}
-@keyframes idle-to-say-leg-front-left {
-    0% { transform: rotateZ(-43deg) translateX(48px) translateY(105px); };
-    100% { transform: rotate(0deg) translateX(0px) translateY(0px); }
 }
