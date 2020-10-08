@@ -62,35 +62,28 @@ Keyframes
 
 @keyframes wiggle-tail {
   50% {
-    transform: rotate(20deg) translateX(10px) translateY(21px); } }
+    transform: rotate(20deg) translateY(-130px) translateX(-132px); } }
       .cat-row .container .cat.idle .head, .cat-row .container .cat.idle .necklace {
         transform-origin: center;
-        animation: idle-bend-head 1.5s ease infinite;
-        transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+        animation: idle-bend-head 1.5s ease infinite; }
       .cat-row .container .cat.idle .body {
         transform-origin: top;
-        animation: idle-bend-upper-body 1.5s ease infinite;
-        transform: rotateZ(-7deg) translateX(-20px); }
+        animation: idle-bend-upper-body 1.5s ease infinite; }
       .cat-row .container .cat.idle .leg-front-left {
         transform-origin: center;
-        animation: idle-bend-leg-front-left 1.5s ease infinite;
-        transform: rotateZ(-43deg) translateX(42px) translateY(105px); }
+        animation: idle-bend-leg-front-left 1.5s ease infinite; }
       .cat-row .container .cat.idle .leg-front-right {
         transform-origin: center;
-        animation: idle-bend-leg-front-right 1.5s ease infinite;
-        transform: rotateZ(-3deg); }
+        animation: idle-bend-leg-front-right 1.5s ease infinite; }
       .cat-row .container .cat.idle .leg-back-left {
         transform-origin: center;
-        animation: idle-bend-leg-back-left 1.5s ease infinite;
-        transform: rotateZ(-3deg); }
+        animation: idle-bend-leg-back-left 1.5s ease infinite; }
         .cat-row .container .cat.idle .leg-back-left .bottom {
           transform-origin: center;
-          animation: idle-bend-leg-back-left-bottom 1.5s ease infinite;
-          transform: rotateZ(7deg); }
+          animation: idle-bend-leg-back-left-bottom 1.5s ease infinite; }
       .cat-row .container .cat.idle .leg-back-right {
         transform-origin: center;
-        animation: idle-bend-leg-back-right 1.5s ease infinite;
-        transform: rotateZ(-3deg); }
+        animation: idle-bend-leg-back-right 1.5s ease infinite; }
 
 @keyframes idle-bend-upper-body {
   0% {
@@ -102,19 +95,19 @@ Keyframes
 
 @keyframes idle-bend-head {
   0% {
-    transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+    transform: rotateZ(-4deg) translateX(38px) translateY(22px); }
   50% {
-    transform: rotateZ(-5deg) translateX(4px) translateY(58px); }
+    transform: rotateZ(-5deg) translateX(32px) translateY(15px); }
   100% {
-    transform: rotateZ(-4deg) translateX(9px) translateY(57px); } }
+    transform: rotateZ(-4deg) translateX(38px) translateY(22px); } }
 
 @keyframes idle-bend-leg-front-left {
   0% {
-    transform: rotateZ(-45deg) translateX(42px) translateY(105px); }
+    transform: rotateZ(-45deg) translateX(62px) translateY(-219px); }
   50% {
-    transform: rotateZ(-43deg) translateX(40px) translateY(113px); }
+    transform: rotateZ(-43deg) translateX(60px) translateY(-211px); }
   100% {
-    transform: rotateZ(-45deg) translateX(42px) translateY(105px); } }
+    transform: rotateZ(-45deg) translateX(62px) translateY(-219px); } }
 
 @keyframes idle-bend-leg-front-right {
   0% {
@@ -136,7 +129,7 @@ Keyframes
   0% {
     transform: rotateZ(0deg); }
   50% {
-    transform: rotateZ(4deg); }
+    transform: rotateZ(4deg) translateX(23px) translateY(-7px); }
   100% {
     transform: rotateZ(0deg); } }
 
@@ -149,12 +142,10 @@ Keyframes
     transform: rotateZ(0deg); } }
       .cat-row .container .cat.idle-to-press .head, .cat-row .container .cat.idle-to-press .necklace {
         transform-origin: center;
-        animation: idle-to-press-head 0.5s ease;
-        transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+        animation: idle-to-press-head 0.5s ease; }
       .cat-row .container .cat.idle-to-press .body {
-        transform-origin: center;
-        animation: idle-to-press-body 0.5s ease;
-        transform: rotateZ(-7deg) translateX(5px); }
+        transform-origin: top;
+        animation: idle-to-press-body 0.5s ease; }
       .cat-row .container .cat.idle-to-press .leg-front-left {
         transform-origin: center;
         animation: idle-to-press-leg-front-left 0.5s ease;
@@ -178,19 +169,19 @@ Keyframes
 
 @keyframes idle-to-press-body {
   0% {
-    transform: rotateZ(-7deg) translateX(5px); }
+    transform: rotateZ(-7deg) translateX(-20px); }
   100% {
     transform: rotate(0deg) translateX(0px); } }
 
 @keyframes idle-to-press-head {
   0% {
-    transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+    transform: rotateZ(-4deg) translateX(38px) translateY(22px); }
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px); } }
 
 @keyframes idle-to-press-leg-front-left {
   0% {
-    transform: rotateZ(-45deg) translateX(48px) translateY(105px); }
+    transform: rotateZ(-45deg) translateX(62px) translateY(-219px); }
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px); } }
 
@@ -217,72 +208,69 @@ Keyframes
     transform: rotateZ(0deg); }
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px); } }
-      .cat-row .container .cat.press-to-idle .cat {
-        transform-origin: center;
-        animation: press-to-idle-move-backwards 0.5s ease; }
       .cat-row .container .cat.press-to-idle .head, .cat-row .container .cat.press-to-idle .necklace {
         transform-origin: center;
-        animation: press-to-idle-head 0.5s ease; }
+        animation: press-to-idle-head 1s ease; }
       .cat-row .container .cat.press-to-idle .body {
-        transform-origin: center;
-        animation: press-to-idle-body 0.5s ease; }
+        transform-origin: top;
+        animation: press-to-idle-body 1s ease; }
       .cat-row .container .cat.press-to-idle .leg-front-left {
         transform-origin: center;
-        animation: press-to-idle-leg-front-left 0.5s ease; }
+        animation: press-to-idle-leg-front-left 1s ease; }
       .cat-row .container .cat.press-to-idle .leg-front-right {
         transform-origin: center;
-        animation: press-to-idle-leg-front-right 0.5s ease; }
+        animation: press-to-idle-leg-front-right 1s ease; }
       .cat-row .container .cat.press-to-idle .leg-back-left {
         transform-origin: center;
-        animation: press-to-idle-leg-back-left 0.5s ease; }
+        animation: press-to-idle-leg-back-left 1s ease; }
         .cat-row .container .cat.press-to-idle .leg-back-left .bottom {
           transform-origin: center;
-          animation: press-to-idle-leg-back-left-bottom 0.5s ease; }
+          animation: press-to-idle-leg-back-left-bottom 1s ease; }
       .cat-row .container .cat.press-to-idle .leg-back-right {
         transform-origin: center;
-        animation: press-to-idle-leg-back-right 0.5s ease; }
+        animation: press-to-idle-leg-back-right 1s ease; }
 
 @keyframes press-to-idle-body {
   0% {
-    transform: rotate(0deg) translateX(0px); }
+    transform: rotate(-15deg) translateX(-120px) translateY(70px); }
   100% {
-    transform: rotateZ(-7deg) translateX(10px); } }
+    transform: rotateZ(-7deg) translateX(-20px); } }
 
 @keyframes press-to-idle-head {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(-15deg) translateX(7px) translateY(75px); }
   100% {
-    transform: rotateZ(-4deg) translateX(9px) translateY(57px); } }
+    transform: rotateZ(-4deg) translateX(38px) translateY(22px); } }
 
 @keyframes press-to-idle-leg-front-left {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(5deg) translateX(80px) translateY(140px); }
   100% {
-    transform: rotateZ(-43deg) translateX(48px) translateY(105px); } }
+    transform: rotateZ(-45deg) translateX(62px) translateY(-219px); } }
 
 @keyframes press-to-idle-leg-front-right {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(35deg) translateX(130px) translateY(200px); }
   100% {
-    transform: rotateZ(-3deg); } }
+    transform: rotateZ(-3deg) translateX(0px) translateY(0px); } }
 
 @keyframes press-to-idle-leg-back-left {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(-15deg) translateX(10px) translateY(60px); }
   100% {
-    transform: rotateZ(-1deg); } }
+    transform: rotateZ(-1deg) translateX(0px) translateY(0px); } }
 
 @keyframes press-to-idle-leg-back-left-bottom {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(35deg) translateX(110px) translateY(-110px); }
   100% {
-    transform: rotateZ(0deg); } }
+    transform: rotateZ(0deg) translateX(0px) translateY(0px); } }
 
 @keyframes press-to-idle-leg-back-right {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(25deg) translateX(-20px) translateY(50px); }
   100% {
-    transform: rotateZ(0deg); } }
+    transform: rotateZ(0deg) transalteX(0px) translateY(0px); } }
       .cat-row .container .cat.press .catSVG {
         transform-origin: center;
         animation: move-forward 1.0s ease infinite; }
@@ -290,7 +278,7 @@ Keyframes
         transform-origin: center;
         animation: press-bend-head 1.0s ease infinite; }
       .cat-row .container .cat.press .body {
-        transform-origin: center;
+        transform-origin: top;
         animation: press-bend-upper-body 1.0s ease infinite; }
       .cat-row .container .cat.press .leg-front-left {
         transform-origin: center;
@@ -314,11 +302,11 @@ Keyframes
 
 @keyframes press-bend-upper-body {
   50% {
-    transform: rotate(-15deg) translateY(70px); } }
+    transform: rotate(-15deg) translateX(-120px) translateY(70px); } }
 
 @keyframes press-bend-head {
   50% {
-    transform: rotate(-15deg) translateX(-33px) translateY(195px); } }
+    transform: rotate(-15deg) translateX(7px) translateY(75px); } }
 
 @keyframes press-bend-leg-front-left {
   50% {
@@ -326,49 +314,55 @@ Keyframes
 
 @keyframes press-bend-leg-front-right {
   50% {
-    transform: rotate(35deg) translateX(0px) translateY(0px); } }
+    transform: rotate(35deg) translateX(130px) translateY(200px); } }
 
 @keyframes press-bend-leg-back-left {
   50% {
-    transform: rotate(-15deg) translateX(80px) translateY(90px); } }
+    transform: rotate(-15deg) translateX(10px) translateY(60px); } }
 
 @keyframes press-bend-leg-back-left-bottom {
   50% {
-    transform: rotate(35deg) translateX(-30px) translateY(-30px); } }
+    transform: rotate(35deg) translateX(110px) translateY(-110px); } }
 
 @keyframes press-bend-leg-back-right {
   50% {
-    transform: rotate(25deg) translateX(-20px) translateY(90px); } }
+    transform: rotate(25deg) translateX(-20px) translateY(50px); } }
       .cat-row .container .cat.idle-to-say .head, .cat-row .container .cat.idle-to-say .necklace {
         transform-origin: center;
-        animation: idle-to-say-head 0.5s ease;
-        transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+        animation: idle-to-say-head 0.5s ease; }
       .cat-row .container .cat.idle-to-say .body {
         transform-origin: top;
-        animation: idle-to-say-body 0.5s ease;
-        transform: rotateZ(-7deg) translateX(-20px); }
+        animation: idle-to-say-body 0.5s ease; }
       .cat-row .container .cat.idle-to-say .leg-front-left {
         transform-origin: center;
-        animation: idle-to-say-leg-front-left 0.5s ease;
-        transform: rotateZ(-43deg) translateX(42px) translateY(105px); }
+        animation: idle-to-say-leg-front-left 0.5s ease; }
+      .cat-row .container .cat.idle-to-say .leg-front-right {
+        transform-origin: center;
+        animation: idle-to-say-leg-front-right 0.5s ease; }
 
 @keyframes idle-to-say-head {
   0% {
-    transform: rotateZ(-4deg) translateX(9px) translateY(57px); }
+    transform: rotateZ(-4deg) translateX(38px) translateY(22px); }
   100% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+    transform: rotate(0deg) translateX(0px) translateY(2px); } }
+
+@keyframes idle-to-say-leg-front-left {
+  0% {
+    transform: rotateZ(-45deg) translateX(62px) translateY(-219px); }
+  100% {
+    transform: rotate(0deg) translateX(7px) translateY(4px); } }
+
+@keyframes idle-to-say-leg-front-right {
+  0% {
+    transform: rotateZ(-3deg) translateY(0px); }
+  100% {
+    transform: rotateZ(-3deg) translateY(-15px); } }
 
 @keyframes idle-to-say-body {
   0% {
     transform: rotateZ(-7deg) translateX(-20px); }
   100% {
     transform: rotateZ(0deg) translateX(0px); } }
-
-@keyframes idle-to-say-leg-front-left {
-  0% {
-    transform: rotateZ(-43deg) translateX(48px) translateY(105px); }
-  100% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); } }
       .cat-row .container .cat.say-to-idle .head, .cat-row .container .cat.say-to-idle .necklace {
         transform-origin: center;
         animation: say-to-idle-head 0.5s ease; }
@@ -378,12 +372,15 @@ Keyframes
       .cat-row .container .cat.say-to-idle .leg-front-left {
         transform-origin: center;
         animation: say-to-idle-leg-front-left 0.5s ease; }
+      .cat-row .container .cat.say-to-idle .leg-front-right {
+        transform-origin: center;
+        animation: say-to-idle-leg-front-right 0.5s ease; }
 
 @keyframes say-to-idle-head {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(0deg) translateX(0px) translateY(2px); }
   100% {
-    transform: rotateZ(-4deg) translateX(9px) translateY(57px); } }
+    transform: rotateZ(-4deg) translateX(38px) translateY(22px); } }
 
 @keyframes say-to-idle-body {
   0% {
@@ -393,27 +390,42 @@ Keyframes
 
 @keyframes say-to-idle-leg-front-left {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); }
+    transform: rotate(0deg) translateX(7px) translateY(4px); }
   100% {
-    transform: rotateZ(-43deg) translateX(48px) translateY(105px); } }
+    transform: rotateZ(-45deg) translateX(62px) translateY(-219px); } }
+
+@keyframes say-to-idle-leg-front-right {
+  0% {
+    transform: rotateZ(-3deg) translateY(-15px); }
+  100% {
+    transform: rotateZ(-3deg) translateY(0px); } }
       .cat-row .container .cat.say .head, .cat-row .container .cat.say .necklace {
-        transform-origin: center;
         animation: say-rotate-head 1.0s ease infinite; }
+      .cat-row .container .cat.say .body {
+        transform-origin: top;
+        transform: rotateZ(0deg) translateX(0px); }
       .cat-row .container .cat.say .leg-front-left {
         transform-origin: center;
         animation: say-leg-front-left 1.0s ease infinite; }
-
-@keyframes say-leg-front-left {
-  50% {
-    transform: rotate(-45deg) translateX(56px) translateY(54px); }
-  100% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+      .cat-row .container .cat.say .leg-front-right {
+        transform-origin: center;
+        transform: rotateZ(-3deg) translateY(-15px); }
 
 @keyframes say-rotate-head {
+  0% {
+    transform: rotate(0deg) translateX(0px) translateY(2px); }
   50% {
-    transform: rotate(-20deg) translateX(-25px) translateY(40px); }
+    transform: rotate(-10deg) translateX(-60px) translateY(65px); }
   100% {
-    transform: rotate(0deg) translateX(0px) translateY(0px); } }
+    transform: rotate(0deg) translateX(0px) translateY(2px); } }
+
+@keyframes say-leg-front-left {
+  0% {
+    transform: rotate(0deg) translateX(7px) translateY(4px); }
+  50% {
+    transform: rotate(-30deg) translateX(27px) translateY(-170px); }
+  100% {
+    transform: rotate(0deg) translateX(7px) translateY(4px); } }
     .cat-row .container .bowl {
       position: absolute;
       width: 20%;
@@ -535,5 +547,3 @@ Keyframes
   transition: all 1s; }
   .audio.no-audio {
     background-image: url("/assets/images/no-audio.svg"); }
-
-/*# sourceMappingURL=app.css.map*/
